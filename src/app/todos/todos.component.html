@@ -1,0 +1,20 @@
+<h2>TODOS list</h2>
+<ul class="list-group">
+<li *ngFor='let todo of todos'>
+  {{todo.text}}&nbsp;<button type="button" class="btn btn-info" (click)="editTodo(todo)">edit</button>&nbsp;<button type="button" class="btn btn-danger" (click)="deleteTodo(todo.text)">delete</button>
+  </li>
+</ul>
+<h2>ADD TODOS</h2>
+<div *ngIf="appState == 'default'">
+ <form>
+  <button type="button" class="btn btn-success" (click)="addTodo()">Add</button><br><br>
+  <input class="form-control" type="text" [(ngModel)]="text">
+  </form>
+  </div>
+  <div *ngIf="appState == 'edit'">
+ <form>
+   <h2>Editing  TODOS</h2>
+  <button type="button" class="btn btn-info" (click)="updateTodo()">Update</button><br><br>
+  <input class="form-control" type="text" [(ngModel)]="text">
+  </form>
+  </div>
